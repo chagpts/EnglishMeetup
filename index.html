@@ -15,34 +15,45 @@
       padding: 50px;
       min-height: 100vh;
       background:
-        linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
-        url("verse.png") no-repeat center center / cover;
-      color: white;
+        /* 배경을 더 옅게 */
+        linear-gradient(rgba(255,255,255,0.65), rgba(255,255,255,0.65)),
+        url("background.jpg") no-repeat center center / cover;
       box-sizing: border-box;
+    }
+
+    /* 상단 흰 배경 박스 */
+    .hero {
+      background: rgba(255,255,255,0.95);
+      display: inline-block;
+      padding: 35px 50px;
+      border-radius: 28px;
+      box-shadow: 0 8px 22px rgba(0,0,0,0.18);
+      margin-bottom: 50px;
     }
 
     h1 {
       font-family: 'Baloo 2', cursive;
-      font-size: 44px;
-      margin-bottom: 12px;
-      letter-spacing: 0.5px;
+      font-size: 42px;
+      margin: 0 0 10px 0;
+      color: #222;
     }
 
-    p {
+    .hero p {
       font-size: 18px;
       line-height: 1.7;
       margin: 0;
+      color: #444;
     }
 
     .topic {
-      margin-top: 50px;
+      margin-top: 20px;
       background: rgba(255,255,255,0.95);
       color: #333;
       padding: 35px 45px;
       border-radius: 24px;
       display: inline-block;
       max-width: 420px;
-      box-shadow: 0 8px 22px rgba(0,0,0,0.25);
+      box-shadow: 0 8px 22px rgba(0,0,0,0.18);
     }
 
     .topic h2 {
@@ -80,6 +91,7 @@
       h1 {
         font-size: 34px;
       }
+      .hero,
       .topic {
         padding: 28px 24px;
       }
@@ -88,11 +100,15 @@
 </head>
 <body>
 
-  <h1>Verse English Conversation Meetup</h1>
-  <p>
-    A relaxed space to talk, listen, and connect in English.
-  </p>
+  <!-- 상단 제목 영역 -->
+  <div class="hero">
+    <h1>Verse English Conversation Meetup</h1>
+    <p>
+      A relaxed space to talk, listen, and connect in English.
+    </p>
+  </div>
 
+  <!-- 토픽 영역 -->
   <div class="topic">
     <h2>Conversation Topic</h2>
     <p>Human Mind & Emotions</p>
