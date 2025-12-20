@@ -1,11 +1,132 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <title>English Meetup</title>
-  </head>
-  <body>
-    <h1>English Meetup ☕</h1>
-    <p>Welcome to our English conversation meetup!</p>
-  </body>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Question Card</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 30px;
+      background: #f7f7f7;
+    }
+    .categories button {
+      margin: 5px;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      background: #333;
+      color: white;
+    }
+    .cards {
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+    .card {
+      background: white;
+      padding: 20px;
+      width: 200px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🎴 Pick 3 Questions</h1>
+  <p>Choose a category</p>
+
+  <div class="categories">
+    <button onclick="pick('daily')">Daily</button>
+    <button onclick="pick('travel')">Travel</button>
+    <button onclick="pick('deep')">Deep</button>
+    <button onclick="pick('fun')">Fun</button>
+    <button onclick="pick('opinion')">Opinion</button>
+  </div>
+
+  <div class="cards" id="cards"></div>
+
+  <script>
+    const questions = {
+      daily: [
+        "What is your morning routine?",
+        "What did you eat today?",
+        "What makes your day better?",
+        "Do you prefer coffee or tea?",
+        "What time do you wake up?",
+        "What app do you use most?",
+        "What’s your favorite snack?",
+        "Do you like mornings?",
+        "What relaxes you?",
+        "How was your day?"
+      ],
+      travel: [
+        "Your favorite country?",
+        "Mountains or beach?",
+        "Last place you visited?",
+        "Dream destination?",
+        "Travel alone or together?",
+        "Hotel or Airbnb?",
+        "Favorite travel food?",
+        "Best memory abroad?",
+        "Next trip plan?",
+        "Travel or staycation?"
+      ],
+      deep: [
+        "What motivates you?",
+        "What scares you most?",
+        "What is happiness?",
+        "Biggest life lesson?",
+        "What defines success?",
+        "Who inspires you?",
+        "What do you value?",
+        "What changed your life?",
+        "What do you regret?",
+        "What do you hope for?"
+      ],
+      fun: [
+        "Cat or dog?",
+        "Sweet or salty?",
+        "Netflix or YouTube?",
+        "Early bird or night owl?",
+        "Sing or dance?",
+        "Pizza or burger?",
+        "Text or call?",
+        "Comedy or horror?",
+        "Ice cream flavor?",
+        "Board games or video games?"
+      ],
+      opinion: [
+        "Is money important?",
+        "Is social media good?",
+        "Work-life balance?",
+        "Remote work?",
+        "AI future?",
+        "School uniforms?",
+        "City vs countryside?",
+        "Marriage necessary?",
+        "Fame or privacy?",
+        "Rules or freedom?"
+      ]
+    };
+
+    function pick(category) {
+      const shuffled = [...questions[category]].sort(() => 0.5 - Math.random());
+      const selected = shuffled.slice(0, 3);
+      const container = document.getElementById("cards");
+      container.innerHTML = "";
+      selected.forEach(q => {
+        const div = document.createElement("div");
+        div.className = "card";
+        div.innerText = q;
+        container.appendChild(div);
+      });
+    }
+  </script>
+
+</body>
 </html>
