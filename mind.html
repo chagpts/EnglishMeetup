@@ -24,13 +24,30 @@
 
     h1 {
       font-family: 'Baloo 2', cursive;
-      margin-bottom: 30px;
+      margin-bottom: 10px;
+    }
+
+    /* index 돌아가기 버튼 */
+    .back-home {
+      margin-bottom: 25px;
+      text-decoration: none;
+      color: #333;
+      background: white;
+      padding: 10px 22px;
+      border-radius: 20px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.18);
+      transition: transform 0.2s ease;
+      font-size: 14px;
+    }
+
+    .back-home:hover {
+      transform: translateY(-2px);
     }
 
     /* 카테고리 버튼 */
     .categories {
       display: flex;
-      gap: 20px;
+      gap: 16px;
       margin-bottom: 40px;
       flex-wrap: wrap;
       justify-content: center;
@@ -38,7 +55,7 @@
 
     .category {
       background: white;
-      padding: 16px 26px;
+      padding: 14px 24px;
       border-radius: 30px;
       cursor: pointer;
       box-shadow: 0 6px 18px rgba(0,0,0,0.18);
@@ -116,6 +133,7 @@
 <body>
 
   <h1>Pick Your Cards</h1>
+  <a href="index.html" class="back-home">Back to Home</a>
 
   <!-- 카테고리 -->
   <div class="categories">
@@ -155,6 +173,54 @@
         "What emotion do you want to understand better?",
         "What makes you feel grateful?",
         "When do you feel most like yourself?"
+      ],
+      relationships: [
+        "What makes a relationship feel safe to you?",
+        "How do you usually show care to others?",
+        "What do you value most in friendships?",
+        "What kind of person do you trust easily?",
+        "How do you handle conflict with others?",
+        "Who has influenced your life the most?",
+        "What kind of relationship do you want more of?",
+        "What is hard for you to ask from others?",
+        "How do you set boundaries?",
+        "What makes you feel connected to someone?"
+      ],
+      self: [
+        "How would you describe yourself in one word?",
+        "What are you proud of lately?",
+        "What habit do you want to change?",
+        "When do you feel confident?",
+        "What do you struggle with the most?",
+        "What helps you reset?",
+        "What part of yourself are you still learning about?",
+        "What motivates you?",
+        "What do you need more of in your life?",
+        "How do you treat yourself when things go wrong?"
+      ],
+      choices: [
+        "What decision changed your life?",
+        "How do you usually make big decisions?",
+        "What choice are you avoiding?",
+        "What helps you decide confidently?",
+        "Do you follow logic or feelings more?",
+        "What was a hard choice you made?",
+        "What would you choose differently now?",
+        "What matters most when you choose?",
+        "How do you deal with regret?",
+        "What choice are you proud of?"
+      ],
+      values: [
+        "What value guides your life?",
+        "What do you stand for?",
+        "What value has changed over time?",
+        "What matters more than success?",
+        "What do you refuse to compromise?",
+        "What makes life meaningful to you?",
+        "What do you believe strongly in?",
+        "What value do you look for in others?",
+        "What value do you want to pass on?",
+        "What keeps you grounded?"
       ]
     };
 
@@ -164,7 +230,6 @@
 
       cardArea.classList.remove("hidden");
 
-      // 질문 섞기
       const shuffled = [...questions[category]].sort(() => 0.5 - Math.random());
       const selected = shuffled.slice(0, 3);
 
