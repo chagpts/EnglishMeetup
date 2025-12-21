@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Verse English Conversation Meetup</title>
 
   <!-- Google Fonts -->
@@ -12,107 +13,124 @@
       margin: 0;
       font-family: 'Quicksand', Arial, sans-serif;
       text-align: center;
-      padding: 50px 20px;
+      padding: 30px 16px;
       min-height: 100vh;
       background:
-        linear-gradient(rgba(255,255,255,0.6), rgba(255,255,255,0.6)),
-        url("verse.png") no-repeat center center / cover;
+        linear-gradient(rgba(255,255,255,0.75), rgba(255,255,255,0.75)),
+        url("verse.png") no-repeat center / cover;
       box-sizing: border-box;
     }
 
     /* HERO */
     .hero {
       background: rgba(255,255,255,0.95);
-      display: inline-block;
-      padding: 35px 50px;
-      border-radius: 28px;
-      box-shadow: 0 8px 22px rgba(0,0,0,0.18);
-      margin-bottom: 60px;
+      padding: 26px 22px;
+      border-radius: 22px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+      margin-bottom: 40px;
     }
 
     h1 {
       font-family: 'Baloo 2', cursive;
-      font-size: 42px;
-      margin: 0 0 10px;
+      font-size: 28px;
+      margin: 0 0 8px;
       color: #222;
+      line-height: 1.25;
     }
 
     .hero p {
-      font-size: 18px;
+      font-size: 15px;
       color: #444;
       margin: 0;
     }
 
-    /* TOPICS GRID */
+    /* TOPICS */
     .topics {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 30px;
-      justify-items: center;
-      align-items: start;
-      max-width: 1100px;
+      grid-template-columns: 1fr;
+      gap: 22px;
+      max-width: 420px;
       margin: 0 auto;
     }
 
     .topic {
       background: rgba(255,255,255,0.95);
-      padding: 35px 40px;
-      border-radius: 26px;
-      width: 100%;
-      max-width: 330px;
-      box-shadow: 0 8px 22px rgba(0,0,0,0.18);
-      box-sizing: border-box;
+      padding: 26px 22px;
+      border-radius: 22px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.18);
     }
 
     .topic h2 {
       font-family: 'Baloo 2', cursive;
-      font-size: 26px;
-      margin-bottom: 14px;
+      font-size: 22px;
+      margin-bottom: 10px;
       color: #111;
     }
 
     .topic p {
-      font-size: 15px;
+      font-size: 14px;
       line-height: 1.6;
       color: #555;
-      margin-bottom: 22px;
+      margin-bottom: 18px;
     }
 
     .button {
-      display: inline-block;
-      padding: 14px 30px;
+      display: block;
+      width: 100%;
+      padding: 14px 0;
       background: #333;
       color: white;
       text-decoration: none;
-      border-radius: 30px;
+      border-radius: 28px;
       font-size: 15px;
+      font-weight: 500;
       transition: all 0.25s ease;
     }
 
     .button:hover {
       background: #111;
-      transform: translateY(-2px);
     }
 
     /* FOOTER */
     footer {
-      margin-top: 90px;
-      font-size: 13px;
+      margin-top: 50px;
+      font-size: 12px;
       color: #555;
-      background: rgba(255,255,255,0.75);
+      background: rgba(255,255,255,0.8);
       display: inline-block;
-      padding: 10px 18px;
-      border-radius: 20px;
+      padding: 8px 16px;
+      border-radius: 18px;
     }
 
-    /* RESPONSIVE */
-    @media (max-width: 900px) {
-      .topics {
-        grid-template-columns: 1fr;
+    /* TABLET & DESKTOP */
+    @media (min-width: 768px) {
+      body {
+        padding: 50px 20px;
       }
 
       h1 {
-        font-size: 34px;
+        font-size: 40px;
+      }
+
+      .hero {
+        padding: 35px 50px;
+        margin-bottom: 60px;
+      }
+
+      .topics {
+        grid-template-columns: repeat(3, 1fr);
+        max-width: 1100px;
+        gap: 30px;
+      }
+
+      .topic {
+        padding: 35px 40px;
+      }
+
+      .button {
+        width: auto;
+        padding: 14px 30px;
+        display: inline-block;
       }
     }
   </style>
@@ -120,45 +138,33 @@
 
 <body>
 
-  <!-- HERO -->
   <div class="hero">
     <h1>Verse English Conversation Meetup</h1>
     <p>A relaxed space to talk, listen, and connect in English.</p>
   </div>
 
-  <!-- TOPICS -->
   <div class="topics">
 
     <div class="topic">
       <h2>Human Mind & Emotions</h2>
-      <p>
-        Light and open questions for warming up
-        conversations.
-      </p>
+      <p>Light and open questions for warming up conversations.</p>
       <a class="button" href="mind.html">Start Card Picking</a>
     </div>
 
     <div class="topic">
       <h2>Mind & Emotion (Deep)</h2>
-      <p>
-        Longer, philosophical questions about feelings
-        and meaning.
-      </p>
+      <p>Longer, philosophical questions about feelings and meaning.</p>
       <a class="button" href="mind2.html">Start Deep Cards</a>
     </div>
 
     <div class="topic">
       <h2>Articles</h2>
-      <p>
-        Short readings and reflections about language,
-        emotions, and human connection.
-      </p>
+      <p>Short readings and reflections about language and connection.</p>
       <a class="button" href="Article.html">Read Article</a>
     </div>
 
   </div>
 
-  <!-- FOOTER -->
   <footer>
     © 2025 Cha GPTs
   </footer>
