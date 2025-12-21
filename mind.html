@@ -1,209 +1,227 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
-<meta charset="UTF-8">
-<title>Mind Cards</title>
+  <meta charset="UTF-8">
+  <title>Mind – Conversation Cards</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600&family=Quicksand&display=swap" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600&family=Quicksand:wght@400;500&display=swap" rel="stylesheet">
 
-<style>
-body {
-  font-family: 'Quicksand', sans-serif;
-  text-align: center;
-  padding: 40px;
-  background:
-    linear-gradient(rgba(255,255,255,0.6), rgba(255,255,255,0.6)),
-    url("verse.png") no-repeat center center / cover;
-}
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Quicksand', Arial, sans-serif;
+      min-height: 100vh;
+      background:
+        linear-gradient(rgba(255,255,255,0.65), rgba(255,255,255,0.65)),
+        url("verse.png") no-repeat center center / cover;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+      box-sizing: border-box;
+    }
 
-h1 {
-  font-family: 'Baloo 2', cursive;
-}
+    h1 {
+      font-family: 'Baloo 2', cursive;
+      margin-bottom: 5px;
+    }
 
-.cards {
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-top: 30px;
-}
+    .subtitle {
+      font-size: 15px;
+      color: #555;
+      margin-bottom: 20px;
+    }
 
-/* 카테고리 카드 */
-.card {
-  width: 180px;
-  height: 240px;
-  background: #444;
-  color: white;
-  border-radius: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  font-size: 20px;
-  transition: transform 1.2s;
-}
+    .back-home {
+      margin-bottom: 25px;
+      text-decoration: none;
+      color: #1e3a5f;
+      background: white;
+      padding: 10px 22px;
+      border-radius: 20px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.18);
+      font-size: 14px;
+    }
 
-.card.flip {
-  transform: rotateY(360deg);
-}
+    /* 카테고리 */
+    .categories {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
 
-/* 질문 카드 */
-.question-card {
-  width: 220px;
-  height: 160px;
-  background: white;
-  color: #333;
-  border-radius: 18px;
-  padding: 18px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.18);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 15px;
-  line-height: 1.6;
-  transition: transform 1.2s;
-}
+    .category {
+      background: white;
+      padding: 14px 24px;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+      transition: transform 0.2s ease;
+      font-weight: 500;
+    }
 
-.question-card.flip {
-  transform: rotateY(360deg);
-}
+    .category:hover {
+      transform: translateY(-2px);
+    }
 
-button {
-  margin-top: 40px;
-  padding: 10px 25px;
-  border-radius: 25px;
-  border: none;
-  background: #333;
-  color: white;
-  cursor: pointer;
-}
+    /* 카드 */
+    .cards {
+      display: flex;
+      gap: 25px;
+      perspective: 1200px;
+    }
 
-footer {
-  margin-top: 70px;
-  font-size: 13px;
-  background: rgba(255,255,255,0.75);
-  display: inline-block;
-  padding: 10px 18px;
-  border-radius: 20px;
-}
-</style>
+    .card {
+      width: 250px;
+      height: 360px;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 1.6s ease;
+    }
+
+    .card.flipping {
+      transform: rotateY(720deg);
+    }
+
+    .card.revealed {
+      transform: rotateY(180deg);
+    }
+
+    .card-face {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 26px;
+      box-sizing: border-box;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.25);
+    }
+
+    .front {
+      background: #f1f6ff;
+      font-size: 20px;
+      font-weight: 500;
+      color: #1e3a5f;
+    }
+
+    .back {
+      background: linear-gradient(145deg, #1e3a5f, #2f5f9e);
+      color: white;
+      transform: rotateY(180deg);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    footer {
+      margin-top: 60px;
+      font-size: 12px;
+      color: #777;
+      opacity: 0.8;
+    }
+
+    @media (max-width: 768px) {
+      .cards {
+        flex-direction: column;
+      }
+    }
+  </style>
 </head>
-
 <body>
 
-<h1>Choose a Category</h1>
+  <h1>Mind</h1>
+  <div class="subtitle">Conversation cards for reflection</div>
 
-<div class="cards" id="categoryCards"></div>
-<div class="cards" id="questionCards"></div>
+  <a href="index.html" class="back-home">Back to Home</a>
 
-<button onclick="location.href='index.html'">Back to Home</button>
+  <!-- 카테고리 -->
+  <div class="categories">
+    <div class="category" onclick="drawCards('mind')">Mind</div>
+    <div class="category" onclick="drawCards('life')">Life</div>
+    <div class="category" onclick="drawCards('thinking')">Thinking</div>
+    <div class="category" onclick="drawCards('growth')">Growth</div>
+  </div>
 
-<footer>
-  © <span id="year"></span> Cha GPTs. All rights reserved.
-</footer>
+  <!-- 카드 -->
+  <div class="cards hidden" id="cardArea">
+    <div class="card">
+      <div class="card-face front">Drawing...</div>
+      <div class="card-face back"></div>
+    </div>
+    <div class="card">
+      <div class="card-face front">Drawing...</div>
+      <div class="card-face back"></div>
+    </div>
+    <div class="card">
+      <div class="card-face front">Drawing...</div>
+      <div class="card-face back"></div>
+    </div>
+  </div>
 
-<script>
-const data = {
-  Emotions: [
-    "What emotion do you feel most often these days?",
-    "What makes you feel calm?",
-    "When do you feel happiest?",
-    "What makes you nervous?",
-    "How do you deal with stress?",
-    "What makes you laugh easily?",
-    "When do you feel lonely?",
-    "What makes you feel proud?",
-    "What makes you feel safe?",
-    "How do you express emotions?"
-  ],
-  Relationships: [
-    "What do you value in friendships?",
-    "Who do you trust most?",
-    "How do you show care?",
-    "What makes a good relationship?",
-    "How do you handle conflict?",
-    "Who inspires you?",
-    "What makes you feel connected?",
-    "How do you keep relationships strong?",
-    "What hurts relationships?",
-    "What brings people closer?"
-  ],
-  Self: [
-    "How would you describe yourself?",
-    "What are you proud of?",
-    "What do you want to improve?",
-    "What motivates you?",
-    "What scares you?",
-    "What makes you confident?",
-    "What makes you insecure?",
-    "What defines you?",
-    "What do you enjoy alone?",
-    "What makes you unique?"
-  ],
-  Choices: [
-    "How do you make decisions?",
-    "Do you trust your intuition?",
-    "What choice changed your life?",
-    "What is a hard decision?",
-    "How do you handle regret?",
-    "Do you plan or go with flow?",
-    "What influences your choices?",
-    "What do you avoid deciding?",
-    "What helps you decide?",
-    "What matters most in choices?"
-  ],
-  Values: [
-    "What matters most to you?",
-    "What do you stand for?",
-    "What do you value in others?",
-    "What guides your life?",
-    "What do you refuse to compromise?",
-    "What makes life meaningful?",
-    "What do you believe strongly?",
-    "What principles guide you?",
-    "What shapes your values?",
-    "What do you protect?"
-  ]
-};
+  <footer>© 2025 Cha GPTs</footer>
 
-const categoryDiv = document.getElementById("categoryCards");
-const questionDiv = document.getElementById("questionCards");
+  <script>
+    /* ❗ 여기 questions만 기존 mind.html 질문으로 교체 ❗ */
+    const questions = {
+      mind: [
+        "What do you think about most often?",
+        "When do you feel most clear-headed?",
+        "What usually distracts your thoughts?"
+      ],
+      life: [
+        "What feels meaningful to you lately?",
+        "What part of life feels uncertain right now?",
+        "What keeps you moving forward?"
+      ],
+      thinking: [
+        "Do you trust your thoughts?",
+        "When do you overthink the most?",
+        "What helps you calm your mind?"
+      ],
+      growth: [
+        "How do you know you are growing?",
+        "What feels difficult but necessary?",
+        "What would growth look like for you now?"
+      ]
+    };
 
-Object.keys(data).forEach(cat => {
-  const card = document.createElement("div");
-  card.className = "card";
-  card.textContent = cat;
-  card.onclick = () => draw(cat, card);
-  categoryDiv.appendChild(card);
-});
+    function drawCards(category) {
+      const cardArea = document.getElementById("cardArea");
+      const cards = document.querySelectorAll(".card");
 
-function draw(cat, card) {
-  questionDiv.innerHTML = "";
-  card.classList.add("flip");
+      cardArea.classList.remove("hidden");
 
-  setTimeout(() => {
-    const qs = [...data[cat]].sort(() => 0.5 - Math.random()).slice(0,3);
+      const shuffled = [...questions[category]].sort(() => 0.5 - Math.random());
+      const selected = shuffled.slice(0, 3);
 
-    qs.forEach((q, i) => {
-      const qc = document.createElement("div");
-      qc.className = "question-card";
-      qc.textContent = "Draw...";
-      questionDiv.appendChild(qc);
+      cards.forEach((card, i) => {
+        card.classList.remove("flipping", "revealed");
+        card.querySelector(".back").innerText = selected[i];
+        card.querySelector(".front").innerText = "Drawing...";
 
-      setTimeout(() => {
-        qc.classList.add("flip");
         setTimeout(() => {
-          qc.textContent = q;
-        }, 600);
-      }, i * 300);
-    });
+          card.classList.add("flipping");
 
-    card.classList.remove("flip");
-  }, 1200);
-}
+          setTimeout(() => {
+            card.classList.remove("flipping");
+            card.classList.add("revealed");
+          }, 1600);
 
-document.getElementById("year").textContent = new Date().getFullYear();
-</script>
+        }, 300 + i * 300);
+      });
+    }
+  </script>
 
 </body>
 </html>
