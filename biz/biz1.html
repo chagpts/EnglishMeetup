@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Article | Verse English Meetup</title>
+<title>Article | Verve English Meetup</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -55,6 +55,25 @@ ul {
 
 li {
   margin-bottom: 8px;
+}
+
+/* Table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 14px;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 12px 14px;
+  text-align: left;
+}
+
+th {
+  background: #f2f2f2;
+  font-weight: 600;
 }
 
 .questions {
@@ -124,18 +143,6 @@ As more companies keep dollars rather than exchanging them, overall
 
 <h2>Corporate Perspective</h2>
 
-<h3>Why Companies Hold Dollars</h3>
-<ul>
-  <li>They need dollars for overseas investments</li>
-  <li>They must make dollar-based payments</li>
-  <li>They want to reduce currency risk</li>
-</ul>
-
-<p>
-However, this behavior reduces the supply of dollars in the domestic market,
-making the dollar stronger.
-</p>
-
 <h3>Year-End Financial Pressure</h3>
 <p>
 Toward the end of the year, many companies hold large amounts of
@@ -143,69 +150,72 @@ Toward the end of the year, many companies hold large amounts of
 If the dollar remains strong, the value of this debt looks larger in won terms.
 </p>
 
-<p>
-This can make financial statements look worse and negatively affect
-key financial ratios.
-As a result, companies often prefer a <strong>lower dollar</strong> at year-end.
-</p>
-
 <h2>Government & National Pension Fund (NPS)</h2>
 
 <p>
-The Korean government does not only rely on verbal guidance or direct intervention.
-It can also use large institutional investors such as the
+The Korean government can also influence the currency market through large
+institutional investors such as the
 <strong>National Pension Service (NPS)</strong>.
 </p>
 
 <p>
-The NPS holds massive overseas assets, most of which are denominated in U.S. dollars.
-This creates significant exposure to currency risk.
-</p>
-
-<h3>Using Forward Contracts for Currency Hedging</h3>
-<p>
-To manage this risk, the NPS often uses
+Because the NPS holds massive overseas assets, it faces significant currency risk.
+To manage this risk, it uses
 <strong>currency forward contracts</strong>.
 </p>
 
+<h2>Forward Contract: Simple Example</h2>
+
 <p>
-In a forward contract, the NPS agrees to
-<strong>sell dollars and buy won at a fixed exchange rate</strong>
-on a future date.
+Below is a simplified example of how a forward contract works in practice:
 </p>
 
-<p>
-This has two important effects:
-</p>
+<table>
+<thead>
+<tr>
+  <th>Item</th>
+  <th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Current Exchange Rate</td>
+  <td>1 USD = 1,350 KRW</td>
+</tr>
+<tr>
+  <td>Forward Contract</td>
+  <td>NPS agrees to sell USD and buy KRW in 3 months</td>
+</tr>
+<tr>
+  <td>Forward Rate</td>
+  <td>1 USD = 1,330 KRW (fixed)</td>
+</tr>
+<tr>
+  <td>Amount</td>
+  <td>USD 1 billion</td>
+</tr>
+<tr>
+  <td>If USD rises to 1,400</td>
+  <td>NPS is protected from losses</td>
+</tr>
+<tr>
+  <td>If USD falls to 1,300</td>
+  <td>NPS gives up extra gains, but gains stability</td>
+</tr>
+</tbody>
+</table>
 
-<ul>
-  <li>It helps the NPS protect its portfolio from exchange rate volatility</li>
-  <li>It increases future dollar supply in the market, easing dollar pressure</li>
-</ul>
-
-<h3>Why This Matters for the Government</h3>
 <p>
-When the NPS actively hedges its dollar exposure using forward contracts,
-it indirectly supports the government’s goal of
-<strong>stabilizing the exchange rate</strong>.
-</p>
-
-<p>
-This approach allows the government to influence the market
-<strong>without direct and visible intervention</strong>,
-reducing the risk of criticism from global markets.
+By locking in a future exchange rate, the NPS reduces uncertainty.
+At the same time, the forward contract increases expected future
+<strong>dollar supply</strong>, helping ease pressure on the exchange rate.
 </p>
 
 <h2>Key Debate</h2>
 <p>
-This leads to an important question:
-</p>
-
-<p>
 <strong>
-Is using public funds like the National Pension for currency hedging
-a smart stabilization tool,
-or does it blur the line between investment management and policy intervention?
+Should public institutions like the National Pension prioritize market stability,
+or focus solely on investment returns?
 </strong>
 </p>
 
@@ -213,11 +223,11 @@ or does it blur the line between investment management and policy intervention?
 
 <div class="questions">
 <ul>
-  <li>How do forward contracts help reduce currency risk?</li>
-  <li>Why might the government prefer indirect tools like the NPS over direct intervention?</li>
-  <li>Does currency hedging by public funds distort the market?</li>
-  <li>Should institutions like the NPS focus only on returns, or also on economic stability?</li>
-  <li>Would this strategy work the same way in other countries?</li>
+  <li>Why does a forward contract reduce currency risk?</li>
+  <li>How does this strategy affect dollar supply in the market?</li>
+  <li>Is stability more important than maximizing returns?</li>
+  <li>Should governments use public funds indirectly to influence markets?</li>
+  <li>What risks could arise from this approach?</li>
 </ul>
 </div>
 
