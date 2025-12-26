@@ -68,12 +68,18 @@ table {
 th, td {
   border: 1px solid #ddd;
   padding: 12px 14px;
-  text-align: left;
+  vertical-align: top;
 }
 
 th {
   background: #f2f2f2;
   font-weight: 600;
+}
+
+.note {
+  font-size: 13px;
+  color: #555;
+  margin-top: 10px;
 }
 
 .questions {
@@ -123,63 +129,37 @@ footer {
 
 <h1>Why the Korean Government Cares About the Dollar</h1>
 
-<h2>Background</h2>
-<p>
-Recent news reported that the U.S. revised its proposal regarding South Korea’s
-<strong>$350 billion commitment</strong>. This raised concerns in South Korea,
-especially around <strong>dollar demand</strong> and <strong>exchange rates</strong>.
-</p>
-
-<p>
-Many Korean companies earn revenue in U.S. dollars through exports and overseas business.
-Instead of converting those dollars into Korean won, companies often
-<strong>hold onto dollars</strong> for future investments or payments.
-</p>
-
-<p>
-As more companies keep dollars rather than exchanging them, overall
-<strong>dollar demand increases</strong>, pushing the dollar higher and weakening the won.
-</p>
-
-<h2>Corporate Perspective</h2>
-
-<h3>Year-End Financial Pressure</h3>
-<p>
-Toward the end of the year, many companies hold large amounts of
-<strong>dollar-denominated debt</strong>.
-If the dollar remains strong, the value of this debt looks larger in won terms.
-</p>
-
 <h2>Government & National Pension Fund (NPS)</h2>
 
 <p>
-The Korean government can also influence the currency market through large
-institutional investors such as the
-<strong>National Pension Service (NPS)</strong>.
+The Korean government can indirectly influence the currency market through
+the <strong>National Pension Service (NPS)</strong>, which holds a large amount of
+dollar-denominated overseas assets.
 </p>
 
 <p>
-Because the NPS holds massive overseas assets, it faces significant currency risk.
-To manage this risk, it uses
+To manage exchange rate risk, the NPS uses
 <strong>currency forward contracts</strong>.
+This strategy focuses on <em>stability</em>, not on maximizing short-term gains.
 </p>
 
-<h2>Forward Contract: Simple Example</h2>
+<h2>Forward Contract: Simple Hedging Example</h2>
 
 <p>
-Below is a simplified example of how a forward contract works in practice:
+The table below shows how currency hedging works — and why
+a rising dollar does <strong>not</strong> mean a real loss for the NPS.
 </p>
 
 <table>
 <thead>
 <tr>
   <th>Item</th>
-  <th>Details</th>
+  <th>Explanation</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>Current Exchange Rate</td>
+  <td>Spot Exchange Rate (Today)</td>
   <td>1 USD = 1,350 KRW</td>
 </tr>
 <tr>
@@ -187,35 +167,42 @@ Below is a simplified example of how a forward contract works in practice:
   <td>NPS agrees to sell USD and buy KRW in 3 months</td>
 </tr>
 <tr>
-  <td>Forward Rate</td>
-  <td>1 USD = 1,330 KRW (fixed)</td>
+  <td>Forward Rate (Fixed)</td>
+  <td>1 USD = 1,330 KRW</td>
 </tr>
 <tr>
-  <td>Amount</td>
+  <td>Contract Amount</td>
   <td>USD 1 billion</td>
 </tr>
 <tr>
   <td>If USD rises to 1,400</td>
-  <td>NPS is protected from losses</td>
+  <td>
+    No accounting loss occurs.<br>
+    However, NPS gives up additional gains →
+    <strong>opportunity cost</strong> (upside limited).
+  </td>
 </tr>
 <tr>
   <td>If USD falls to 1,300</td>
-  <td>NPS gives up extra gains, but gains stability</td>
+  <td>
+    Forward contract protects value.<br>
+    <strong>Downside risk is reduced</strong>.
+  </td>
 </tr>
 </tbody>
 </table>
 
-<p>
-By locking in a future exchange rate, the NPS reduces uncertainty.
-At the same time, the forward contract increases expected future
-<strong>dollar supply</strong>, helping ease pressure on the exchange rate.
+<p class="note">
+✔ Currency hedging limits upside potential in exchange for downside protection.  
+It is similar to paying an insurance premium for stability.
 </p>
 
 <h2>Key Debate</h2>
+
 <p>
 <strong>
-Should public institutions like the National Pension prioritize market stability,
-or focus solely on investment returns?
+Should public institutions like the National Pension prioritize
+exchange-rate stability over potential gains from a rising dollar?
 </strong>
 </p>
 
@@ -223,11 +210,11 @@ or focus solely on investment returns?
 
 <div class="questions">
 <ul>
-  <li>Why does a forward contract reduce currency risk?</li>
-  <li>How does this strategy affect dollar supply in the market?</li>
-  <li>Is stability more important than maximizing returns?</li>
-  <li>Should governments use public funds indirectly to influence markets?</li>
-  <li>What risks could arise from this approach?</li>
+  <li>Why is opportunity cost different from an actual financial loss?</li>
+  <li>Is limiting upside a reasonable trade-off for long-term stability?</li>
+  <li>Should public pension funds consider macroeconomic effects?</li>
+  <li>Does indirect government influence distort the currency market?</li>
+  <li>Would you hedge if you were managing a national pension fund?</li>
 </ul>
 </div>
 
@@ -248,3 +235,4 @@ document.getElementById("year").textContent = new Date().getFullYear();
 
 </body>
 </html>
+
