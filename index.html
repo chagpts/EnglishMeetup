@@ -149,11 +149,10 @@
     }
 
     /* CHANNEL TALK HINT (DESKTOP ONLY) */
-    .channel-hint {
+     .channel-hint {
       position: fixed;
-      top: 50%;
-      transform: translateY(-0px); /* 채널톡보다 살짝 위 */
-      right: 96px;                   /* 채널톡과 수평 정렬 */
+      bottom: 160px;        /* 채널톡 바로 위 */
+      right: 30px;          /* 채널톡과 수평 정렬 */
       background: rgba(0,0,0,0.78);
       color: #fff;
       font-size: 13px;
@@ -163,8 +162,8 @@
       z-index: 9998;
       line-height: 1.4;
       text-align: left;
-      animation: floatHint 2.5s ease-in-out infinite;
     }
+
 
 
     .channel-hint::after {
