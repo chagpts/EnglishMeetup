@@ -21,7 +21,6 @@
         url("verse.png") no-repeat center / cover;
     }
 
-
     .container {
       max-width: 520px;
       margin: 0 auto;
@@ -31,70 +30,82 @@
       font-family: 'Baloo 2', cursive;
       font-size: 24px;
       margin-bottom: 6px;
-      color: #222;
     }
 
     .subtitle {
       font-size: 14px;
       color: #555;
       margin-bottom: 22px;
-      line-height: 1.5;
     }
 
-    .buttons {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin-bottom: 22px;
-    }
-
-    .topic-btn {
-      padding: 14px 0;
-      border-radius: 24px;
-      border: none;
-      background: #111;
-      color: #fff;
-      font-size: 14px;
-      font-weight: 500;
-      cursor: pointer;
-    }
-
-    .topic-btn:active {
-      transform: scale(0.97);
+    #cards.shuffle {
+      opacity: 0.4;
+      filter: blur(1px);
+      transition: all 0.25s ease;
     }
 
     .card {
       background: #fff;
-      border-radius: 22px;
-      padding: 24px 20px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.15);
-      margin-bottom: 18px;
+      padding: 22px 18px;
+      border-radius: 20px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+      margin-bottom: 16px;
       text-align: left;
+      opacity: 1;
+    }
+
+    .card.animate {
+      animation: drawCard 0.45s ease-out;
+    }
+
+    @keyframes drawCard {
+      from {
+        opacity: 0;
+        transform: translateY(24px) scale(0.95);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
     }
 
     .category {
       font-size: 12px;
-      color: #777;
+      color: #888;
+      margin-bottom: 6px;
       text-transform: uppercase;
-      margin-bottom: 8px;
-      letter-spacing: 0.4px;
+      letter-spacing: 0.5px;
     }
 
     .question {
       font-size: 16px;
-      line-height: 1.5;
       color: #222;
+      line-height: 1.45;
     }
 
-    .home-btn {
+    button {
       width: 100%;
       padding: 14px 0;
       border-radius: 30px;
       border: none;
+      font-size: 15px;
+      font-weight: 500;
+      cursor: pointer;
+      margin-top: 12px;
+    }
+
+    .draw-btn {
+      background: #111;
+      color: #fff;
+    }
+
+    .home-btn {
       background: #e0e0e0;
       color: #111;
-      font-size: 14px;
-      cursor: pointer;
+    }
+
+    button:active {
+      transform: scale(0.98);
     }
   </style>
 </head>
@@ -104,73 +115,65 @@
 
     <h1>Card Discussion</h1>
     <div class="subtitle">
-      Choose a topic, pick a card,<br>
-      and share as much as you want.
+      Draw 3 cards and start talking.<br>
+      Short answers are totally fine.
     </div>
 
-    <div class="buttons">
-      <button class="topic-btn" onclick="drawCard('life')">Everyday Life</button>
-      <button class="topic-btn" onclick="drawCard('experience')">Experiences</button>
-      <button class="topic-btn" onclick="drawCard('opinion')">Opinions</button>
-      <button class="topic-btn" onclick="drawCard('culture')">Culture</button>
-    </div>
+    <div id="cards"></div>
 
-    <div id="cardArea"></div>
-
-    <button class="home-btn" onclick="location.href='index.html'">
-      ← Back to Home
-    </button>
+    <button class="draw-btn" onclick="drawCards()">Draw 3 Cards</button>
+    <button class="home-btn" onclick="location.href='index.html'">← Back to Home</button>
 
   </div>
 
   <script>
-    const cards = {
-      life: [
-        "What’s one small habit you do every day?",
-        "What part of your day do you enjoy the most?",
-        "How do you usually spend your weekends?",
-        "What’s something simple that makes you happy?",
-        "What helps you relax after a long day?"
-      ],
+    const questions = [
+      { c:"Local", q:"What do you like most about this area?" },
+      { c:"Local", q:"What’s a local place you’d recommend?" },
+      { c:"Work", q:"What part of your job do you enjoy most?" },
+      { c:"Work", q:"What skill are you currently improving?" },
+      { c:"Interests", q:"What do you like to do on weekends?" },
+      { c:"Interests", q:"What’s a hobby you want to try?" },
+      { c:"Life", q:"What’s something that made you smile recently?" },
+      { c:"Life", q:"Do you prefer staying in or going out?" },
+      { c:"Entertainment", q:"What’s the last movie or show you watched?" },
+      { c:"Entertainment", q:"What kind of music are you into these days?" },
+      { c:"Travel", q:"Where would you like to travel next?" },
+      { c:"Fun", q:"If you could instantly master a skill, what would it be?" }
+    ];
 
-      experience: [
-        "What’s a memorable experience you still think about?",
-        "What’s something you tried for the first time recently?",
-        "What’s an unexpected situation you handled well?",
-        "What’s a funny or awkward memory you don’t mind sharing?",
-        "What’s a small lesson life taught you recently?"
-      ],
+    function drawCards() {
+      const cardsDiv = document.getElementById("cards");
+      cardsDiv.innerHTML = "";
+      cardsDiv.classList.add("shuffle");
 
-      opinion: [
-        "Do you prefer planning ahead or going with the flow?",
-        "Is it better to work alone or with others?",
-        "What matters more: time or money?",
-        "Is it better to be busy or have free time?",
-        "Do you think routines are helpful or boring?"
-      ],
+      const shuffled = [...questions].sort(() => 0.5 - Math.random());
+      const selected = shuffled.slice(0, 3);
 
-      culture: [
-        "What’s something unique about your culture?",
-        "Is work-life balance important in your country?",
-        "What food best represents where you’re from?",
-        "What cultural habit surprised you the most?",
-        "Is small talk common in your culture?"
-      ]
-    };
+      setTimeout(() => {
+        cardsDiv.classList.remove("shuffle");
 
-    function drawCard(type) {
-      const list = cards[type];
-      const random = list[Math.floor(Math.random() * list.length)];
+        selected.forEach((item, index) => {
+          setTimeout(() => {
+            const card = document.createElement("div");
+            card.className = "card";
 
-      const cardArea = document.getElementById("cardArea");
-      cardArea.innerHTML = `
-        <div class="card">
-          <div class="category">${type}</div>
-          <div class="question">${random}</div>
-        </div>
-      `;
+            card.innerHTML = `
+              <div class="category">${item.c}</div>
+              <div class="question">${item.q}</div>
+            `;
+
+            cardsDiv.appendChild(card);
+
+            // 애니메이션 안정 트리거
+            requestAnimationFrame(() => {
+              card.classList.add("animate");
+            });
+
+          }, index * 220);
+        });
+      }, 300);
     }
   </script>
-
 </body>
 </html>
