@@ -86,6 +86,27 @@
     button:active {
       transform: scale(0.98);
     }
+
+        /* 카드 등장 애니메이션 */
+    .card {
+      animation: drawCard 0.45s ease-out forwards;
+      opacity: 0;
+      transform: translateY(20px) scale(0.96);
+    }
+    
+    @keyframes drawCard {
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+    
+    /* 셔플 중 효과 */
+    .shuffle {
+      opacity: 0.4;
+      filter: blur(1px);
+    }
+
   </style>
 </head>
 
@@ -170,22 +191,30 @@
     ];
 
     function drawCards() {
-      const shuffled = [...questions].sort(() => 0.5 - Math.random());
-      const selected = shuffled.slice(0, 3);
+    const shuffled = [...questions].sort(() => 0.5 - Math.random());
+    const selected = shuffled.slice(0, 3);
 
-      const cardsDiv = document.getElementById("cards");
-      cardsDiv.innerHTML = "";
+    const cardsDiv = document.getElementById("cards");
+    cardsDiv.innerHTML = "";
+    cardsDiv.classList.add("shuffle");
 
-      selected.forEach(item => {
-        const card = document.createElement("div");
-        card.className = "card";
-        card.innerHTML = `
-          <div class="category">${item.c}</div>
-          <div class="question">${item.q}</div>
-        `;
-        cardsDiv.appendChild(card);
+    setTimeout(() => {
+      cardsDiv.classList.remove("shuffle");
+
+      selected.forEach((item, index) => {
+        setTimeout(() => {
+          const card = document.createElement("div");
+          card.className = "card";
+          card.innerHTML = `
+            <div class="category">${item.c}</div>
+            <div class="question">${item.q}</div>
+          `;
+          cardsDiv.appendChild(card);
+        }, index * 220); // 카드 간격
       });
-    }
-  </script>
+    }, 300); // 셔플 시간
+  }
+</script>
+
 </body>
 </html>
