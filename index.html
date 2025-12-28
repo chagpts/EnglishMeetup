@@ -9,16 +9,14 @@
   <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600&family=Quicksand:wght@400;500&display=swap" rel="stylesheet">
 
   <style>
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
-      font-family: 'Quicksand', Arial, sans-serif;
-      text-align: center;
       padding: 24px 14px;
       min-height: 100vh;
+      font-family: 'Quicksand', Arial, sans-serif;
+      text-align: center;
       background:
         linear-gradient(rgba(255,255,255,0.78), rgba(255,255,255,0.78)),
         url("verse.png") no-repeat center / cover;
@@ -38,7 +36,6 @@
       font-size: 24px;
       margin: 0 0 6px;
       color: #222;
-      line-height: 1.3;
     }
 
     .hero p {
@@ -52,10 +49,9 @@
       max-width: 520px;
       margin: 0 auto 32px;
       background: rgba(255,255,255,0.96);
-      padding: 20px 20px;
+      padding: 20px;
       border-radius: 22px;
       box-shadow: 0 6px 18px rgba(0,0,0,0.18);
-      text-align: center;
     }
 
     .meetup-info h2 {
@@ -63,7 +59,6 @@
       font-size: 20px;
       margin-bottom: 14px;
       color: #111;
-      text-align: center;
     }
 
     .info-item {
@@ -91,41 +86,58 @@
       font-weight: 500;
     }
 
-    /* MEETUP ORDER (NO TIME, MOBILE FIRST) */
-    .meetup-order {
-      margin: 22px auto 26px;
+    /* BUTTON */
+    .button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      padding: 14px 0;
+      margin-top: 14px;
+      background: #333;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 28px;
+      font-size: 15px;
     }
-    
+
+    .button:active { background: #111; }
+
+    /* MEETUP ORDER */
+    .meetup-order {
+      max-width: 520px;
+      margin: 0 auto 32px;
+    }
+
     .meetup-order h3 {
       font-family: 'Baloo 2', cursive;
       font-size: 18px;
-      text-align: center;
       margin-bottom: 14px;
       color: #111;
     }
-    
+
     .order-step {
       background: rgba(255,255,255,0.95);
       border-radius: 16px;
       padding: 14px 16px;
       margin-bottom: 10px;
+      text-align: left;
     }
-    
+
     .step-title {
       font-size: 14px;
       font-weight: 600;
-      color: #222;
       margin-bottom: 4px;
-    }
-    
-    .order-step p {
-      font-size: 13px;
-      line-height: 1.5;
-      color: #555;
-      margin: 0;
+      color: #222;
     }
 
-    
+    .order-step p {
+      font-size: 13px;
+      color: #555;
+      margin: 0;
+      line-height: 1.5;
+    }
+
     /* TOPICS */
     .topics {
       display: grid;
@@ -151,28 +163,8 @@
 
     .topic p {
       font-size: 14px;
-      line-height: 1.6;
       color: #555;
       margin-bottom: 16px;
-    }
-
-    .button {
-      display: flex;
-      align-items: center;        /* 세로 가운데 */
-      justify-content: center;    /* 가로 가운데 */
-      
-      width: 100%;
-      padding: 14px 0;
-      background: #333;
-      color: white;
-      text-decoration: none;
-      border-radius: 28px;
-      font-size: 15px;
-      font-weight: 500;
-    }
-
-    .button:active {
-      background: #111;
     }
 
     /* FOOTER */
@@ -186,75 +178,18 @@
       border-radius: 18px;
     }
 
-    /* CHANNEL TALK HINT (DESKTOP ONLY) */
-     .channel-hint {
-      position: fixed;
-      bottom: 160px;        /* 채널톡 바로 위 */
-      right: 70px;          /* 채널톡과 수평 정렬 */
-      background: rgba(0,0,0,0.78);
-      color: #fff;
-      font-size: 13px;
-      padding: 10px 14px;
-      border-radius: 16px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-      z-index: 9998;
-      line-height: 1.4;
-      text-align: left;
-    }
-
-    .channel-hint::after {
-      content: "";
-      position: absolute;
-      right: -8px;
-      top: 50%;
-      transform: translateY(-50%);
-      border-width: 6px;
-      border-style: solid;
-      border-color: transparent transparent transparent rgba(0,0,0,0.78);
-    }
-
-
-    @keyframes floatHint {
-      0% { transform: translateY(0); }
-      50% { transform: translateY(-6px); }
-      100% { transform: translateY(0); }
-    }
-
- 
-
     /* DESKTOP */
     @media (min-width: 768px) {
-      body {
-        padding: 50px 20px;
-      }
+      body { padding: 50px 20px; }
+      h1 { font-size: 40px; }
 
-      h1 {
-        font-size: 40px;
-      }
-
-      .hero {
-        padding: 36px 50px;
-        margin-bottom: 60px;
-      }
-
-      .meetup-info {
-        padding: 30px 40px;
-        margin-bottom: 60px;
-      }
-
-      .meetup-info h2 {
-        font-size: 24px;
-      }
-
+      .hero { padding: 36px 50px; margin-bottom: 60px; }
+      .meetup-info, .meetup-order { margin-bottom: 60px; }
 
       .topics {
         grid-template-columns: repeat(3, 1fr);
         max-width: 1100px;
         gap: 30px;
-      }
-
-      .topic {
-        padding: 35px 40px;
       }
 
       .button {
@@ -276,13 +211,8 @@
   <div class="meetup-info">
     <h2>When & Where</h2>
 
-    <div class="info-item">
-      <span>Day:</span> Every Sunday
-    </div>
-
-    <div class="info-item">
-      <span>Time:</span> 10:50 AM – 13:00 PM
-    </div>
+    <div class="info-item"><span>Day:</span> Every Sunday</div>
+    <div class="info-item"><span>Time:</span> 10:50 AM – 13:00 PM</div>
 
     <div class="info-item">
       <span>Place:</span>
@@ -295,49 +225,31 @@
     <div class="info-item">
       <span>Level:</span> Open to all (Relaxed & friendly)
     </div>
-    <a
-      class="button"
-      href="https://www.somoim.co.kr/2bc74b46-8b91-11e9-b679-0afc8908e2961"
-      target="_blank"
-    >
+
+    <a class="button" href="https://www.somoim.co.kr/2bc74b46-8b91-11e9-b679-0afc8908e2961" target="_blank">
       Practice English With Us
     </a>
-    </div>
-  
-    <div class="meetup-order">
-      <h3>How the Meetup Usually Goes</h3>
-    
-      <div class="order-step">
-        <div class="step-title">Ice Breaking</div>
-        <p>
-          We usually start with light ice-breaking conversations
-          to help everyone feel comfortable speaking English.
-        </p>
-      </div>
-    
-      <div class="order-step">
-        <div class="step-title">Card Discussion</div>
-        <p>
-          Next, we pick conversation cards and share our thoughts
-          in a relaxed and open way.
-        </p>
-      </div>
-    
-      <div class="order-step">
-        <div class="step-title">Article Discussion</div>
-        <p>
-          Finally, we read a short article together and talk about
-          ideas, opinions, and experiences.
-        </p>
-      </div>
+  </div>
+
+  <div class="meetup-order">
+    <h3>How the Meetup Usually Goes</h3>
+
+    <div class="order-step">
+      <div class="step-title">Ice Breaking</div>
+      <p>We start with light conversations to help everyone feel comfortable.</p>
     </div>
 
+    <div class="order-step">
+      <div class="step-title">Card Discussion</div>
+      <p>We pick conversation cards and share thoughts freely.</p>
+    </div>
 
+    <div class="order-step">
+      <div class="step-title">Article Discussion</div>
+      <p>We read a short article together and talk about ideas and experiences.</p>
+    </div>
+  </div>
 
-
-
-
-  
   <div class="topics">
     <div class="topic">
       <h2>Human Mind & Emotions</h2>
@@ -347,7 +259,7 @@
 
     <div class="topic">
       <h2>Articles</h2>
-      <p>Short readings and reflections about language and connection.</p>
+      <p>Short readings and reflections.</p>
       <a class="button" href="article.html">Read Article</a>
     </div>
 
@@ -358,52 +270,7 @@
     </div>
   </div>
 
-  <footer>
-    © 2025 Cha GPTs
-  </footer>
-
-  <!-- Channel Talk Hint (Desktop) -->
-  <div class="channel-hint">
-    💬 Questions or inquiries?<br>
-    Click the chat icon →
-  </div>
-
-  <!-- Channel.io -->
-  <script>
-    (function(){
-      var w=window;
-      if(w.ChannelIO){
-        return w.console.error("ChannelIO script included twice.");
-      }
-      var ch=function(){ch.c(arguments);};
-      ch.q=[];
-      ch.c=function(args){ch.q.push(args);};
-      w.ChannelIO=ch;
-      function l(){
-        if(w.ChannelIOInitialized){return;}
-        w.ChannelIOInitialized=true;
-        var s=document.createElement("script");
-        s.type="text/javascript";
-        s.async=true;
-        s.src="https://cdn.channel.io/plugin/ch-plugin-web.js";
-        var x=document.getElementsByTagName("script")[0];
-        if(x.parentNode){x.parentNode.insertBefore(s,x);}
-      }
-      if(document.readyState==="complete"){
-        l();
-      } else {
-        w.addEventListener("DOMContentLoaded",l);
-        w.addEventListener("load",l);
-      }
-    })();
-
-    ChannelIO('boot', {
-      pluginKey: "7a00a329-5130-4ac5-8000-8d9abc772efd",
-      position: "right",
-      align: "top",
-      zIndex: 9999
-    });
-  </script>
+  <footer>© 2025 Cha GPTs</footer>
 
 </body>
 </html>
