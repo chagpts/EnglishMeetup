@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Verve English Conversation Meetup</title>
+  <title>Relaxed English Conversation Over Coffee</title>
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600&family=Quicksand:wght@400;500&display=swap" rel="stylesheet">
@@ -22,7 +22,6 @@
         url("verse.png") no-repeat center / cover;
     }
 
-    /* HERO */
     .hero {
       background: rgba(255,255,255,0.96);
       padding: 24px 18px;
@@ -34,7 +33,7 @@
     h1 {
       font-family: 'Baloo 2', cursive;
       font-size: 24px;
-      margin: 0 0 6px;
+      margin: 0 0 10px;
       color: #222;
     }
 
@@ -42,9 +41,9 @@
       font-size: 14px;
       color: #444;
       margin: 0;
+      line-height: 1.5;
     }
 
-    /* MEETUP INFO */
     .meetup-info {
       max-width: 520px;
       margin: 0 auto 32px;
@@ -54,7 +53,8 @@
       box-shadow: 0 6px 18px rgba(0,0,0,0.18);
     }
 
-    .meetup-info h2 {
+    .meetup-info h2,
+    .meetup-info h3 {
       font-family: 'Baloo 2', cursive;
       font-size: 20px;
       margin-bottom: 14px;
@@ -75,9 +75,9 @@
 
     .info-item small {
       display: block;
-      margin-left: 52px;
       font-size: 12px;
       color: #777;
+      margin-top: 4px;
     }
 
     .info-item a {
@@ -86,7 +86,6 @@
       font-weight: 500;
     }
 
-    /* BUTTON */
     .button {
       display: flex;
       justify-content: center;
@@ -102,19 +101,6 @@
     }
 
     .button:active { background: #111; }
-
-    /* MEETUP ORDER */
-    .meetup-order {
-      max-width: 520px;
-      margin: 0 auto 32px;
-    }
-
-    .meetup-order h3 {
-      font-family: 'Baloo 2', cursive;
-      font-size: 18px;
-      margin-bottom: 14px;
-      color: #111;
-    }
 
     .order-step {
       background: rgba(255,255,255,0.95);
@@ -138,7 +124,6 @@
       line-height: 1.5;
     }
 
-    /* TOPICS */
     .topics {
       display: grid;
       grid-template-columns: 1fr;
@@ -167,7 +152,6 @@
       margin-bottom: 16px;
     }
 
-    /* FOOTER */
     footer {
       margin-top: 36px;
       font-size: 12px;
@@ -178,59 +162,21 @@
       border-radius: 18px;
     }
 
-    /* DESKTOP */
     @media (min-width: 768px) {
       body { padding: 50px 20px; }
       h1 { font-size: 40px; }
-
       .hero { padding: 36px 50px; margin-bottom: 60px; }
-      .meetup-info, .meetup-order { margin-bottom: 60px; }
-
+      .meetup-info { margin-bottom: 60px; }
       .topics {
         grid-template-columns: repeat(3, 1fr);
         max-width: 1100px;
         gap: 30px;
       }
-
       .button {
         width: auto;
         padding: 14px 30px;
         display: inline-block;
       }
-    }
-
-        /* CHANNEL TALK HINT (DESKTOP ONLY) */
-     .channel-hint {
-      position: fixed;
-      bottom: 160px;        /* 채널톡 바로 위 */
-      right: 70px;          /* 채널톡과 수평 정렬 */
-      background: rgba(0,0,0,0.78);
-      color: #fff;
-      font-size: 13px;
-      padding: 10px 14px;
-      border-radius: 16px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-      z-index: 9998;
-      line-height: 1.4;
-      text-align: left;
-    }
-
-    .channel-hint::after {
-      content: "";
-      position: absolute;
-      right: -8px;
-      top: 50%;
-      transform: translateY(-50%);
-      border-width: 6px;
-      border-style: solid;
-      border-color: transparent transparent transparent rgba(0,0,0,0.78);
-    }
-
-
-    @keyframes floatHint {
-      0% { transform: translateY(0); }
-      50% { transform: translateY(-6px); }
-      100% { transform: translateY(0); }
     }
   </style>
 </head>
@@ -238,12 +184,22 @@
 <body>
 
   <div class="hero">
-    <h1>Verve English Conversation Meetup</h1>
-    <p>A relaxed space to talk, listen, and connect in English.</p>
+    <h1>Relaxed English Conversation Over Coffee ☕</h1>
+    <p>
+      A relaxed English meetup for learners.<br>
+      No pressure. No levels. Speak as much or as little as you want.
+    </p>
   </div>
 
   <div class="meetup-info">
     <h2>How to Join</h2>
+
+    <div class="info-item">
+      <small>
+        Most of us are learners, not native speakers.<br>
+        Making mistakes is totally okay 🙂
+      </small>
+    </div>
 
     <div class="info-item"><span>Day:</span> Every Sunday</div>
     <div class="info-item"><span>Time:</span> 10:50 AM – 13:00 PM</div>
@@ -251,7 +207,7 @@
     <div class="info-item">
       <span>Place:</span>
       <a href="https://naver.me/xzlzyYoQ" target="_blank">
-        뚜흐느솔, Sungsu (View Map)
+        뚜흐느솔, Seongsu (View Map)
       </a>
       <small>(Location may vary each week)</small>
     </div>
@@ -261,104 +217,39 @@
     </div>
 
     <div class="info-item">
-      <span>Participation fee:</span> please purchase one drink.
-    </div>  
+      <span>Participation fee:</span> no fee — just grab one drink ☕
+    </div>
 
     <a class="button" href="https://www.somoim.co.kr/2bc74b46-8b91-11e9-b679-0afc8908e2961" target="_blank">
-      Practice English With Us
+      Come Join Us ☕
     </a>
   </div>
-  
+
   <div class="meetup-info">
     <h3>How the Meetup Usually Goes</h3>
 
+    <p style="font-size:13px;color:#666;margin-bottom:16px;">
+      You don’t need to speak fluently.<br>
+      Listening is totally okay, especially on your first visit.
+    </p>
+
     <div class="order-step">
       <div class="step-title">Ice Breaking</div>
-      <p>We start with light conversations to help everyone feel comfortable.</p>
+      <p>Easy questions, small talk, and lots of smiles. No one is forced to speak.</p>
     </div>
 
     <div class="order-step">
       <div class="step-title">Card Discussion</div>
-      <p>We pick conversation cards and share thoughts freely.</p>
+      <p>Pick a card, share thoughts freely, or just listen if you prefer.</p>
     </div>
 
     <div class="order-step">
       <div class="step-title">Article Discussion</div>
-      <p>We read a short article together and talk about ideas and experiences.</p>
+      <p>We read a short article together and casually share ideas.</p>
     </div>
   </div>
 
-  <div class="topics">
-    <div class="topic">
-      <h2>Ice Breaking</h2>
-      <p>Open questions for warming up conversations.</p>
-      <a class="button" href="iceBreaking.html">Let’s Break the Ice</a>
-    </div>
-    <div class="topic">
-      <h2>Card Discussion</h2>
-      <p>We choose a card and talk about the question together.</p>
-      <a class="button" href="card.html">Start Card Picking</a>
-    </div>
-    <div class="topic">
-      <h2>Article Discussion</h2>
-      <p>Short readings and reflections.</p>
-      <a class="button" href="article.html">Read Article</a>
-    </div>
-    <div class="topic">
-      <h2>(TBD) Mind Discussion</h2>
-      <p>We choose a card and talk about the question together.</p>
-      <a class="button" href="mindSelect.html">Start Card Picking</a>
-    </div>
-    <div class="topic">
-      <h2>(TBD) Business English</h2>
-      <p>Short business readings and discussions.</p>
-      <a class="button" href="biz.html">Read Article</a>
-    </div>
-  </div>
+  <footer>© 2025 Verve English Meetup</footer>
 
-  <footer>© 2025 Cha GPTs</footer>
-  
-  <!-- Channel Talk Hint (Desktop) -->
-  <div class="channel-hint">
-    💬 Questions or inquiries?<br>
-    Click the chat icon →
-  </div>
-
-  <!-- Channel.io -->
-  <script>
-    (function(){
-      var w=window;
-      if(w.ChannelIO){
-        return w.console.error("ChannelIO script included twice.");
-      }
-      var ch=function(){ch.c(arguments);};
-      ch.q=[];
-      ch.c=function(args){ch.q.push(args);};
-      w.ChannelIO=ch;
-      function l(){
-        if(w.ChannelIOInitialized){return;}
-        w.ChannelIOInitialized=true;
-        var s=document.createElement("script");
-        s.type="text/javascript";
-        s.async=true;
-        s.src="https://cdn.channel.io/plugin/ch-plugin-web.js";
-        var x=document.getElementsByTagName("script")[0];
-        if(x.parentNode){x.parentNode.insertBefore(s,x);}
-      }
-      if(document.readyState==="complete"){
-        l();
-      } else {
-        w.addEventListener("DOMContentLoaded",l);
-        w.addEventListener("load",l);
-      }
-    })();
-
-    ChannelIO('boot', {
-      pluginKey: "7a00a329-5130-4ac5-8000-8d9abc772efd",
-      position: "right",
-      align: "top",
-      zIndex: 9999
-    });
-  </script>
 </body>
 </html>
