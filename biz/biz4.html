@@ -166,9 +166,9 @@ from a <strong>US GAAP accounting perspective</strong>.
 <div class="highlight">
 <p>
 <strong>Legend</strong><br>
-✅ Accounting entry required<br>
-⚠️ Conditional / review needed<br>
-❌ No accounting impact
+- Accounting entry required<br>
+- Conditional / review needed<br>
+- No accounting impact
 </p>
 </div>
 
@@ -200,7 +200,7 @@ from a <strong>US GAAP accounting perspective</strong>.
 </ul>
 </div>
 
-<h2>1️⃣ Payment Intent: Flow Control (Not Money)</h2>
+<h2>1️. Payment Intent: Flow Control (Not Money)</h2>
 
 <p>
 According to Stripe’s official guide,
@@ -250,7 +250,7 @@ not to represent money or revenue.
 ✔ PaymentIntent states help developers, not accountants.
 </p>
 
-<h2>2️⃣ Charge: Revenue Recognition Anchor</h2>
+<h2>2️. Charge: Revenue Recognition Anchor</h2>
 
 <p>
 While PaymentIntents manage flow,
@@ -302,7 +302,7 @@ Always anchor revenue to <code>charge.succeeded</code>.
 </p>
 </div>
 
-<h2>3️⃣ Balance Transactions: Stripe’s Sub-Ledger</h2>
+<h2>3️. Balance Transactions: Stripe’s Sub-Ledger</h2>
 
 <p>
 Stripe internally records every money movement
@@ -347,7 +347,7 @@ These entries are essential for reconciliation.
 </tbody>
 </table>
 
-<h2>4️⃣ Stripe Balance vs Cash</h2>
+<h2>4️. Stripe Balance vs Cash</h2>
 
 <table>
 <thead>
@@ -374,7 +374,7 @@ These entries are essential for reconciliation.
 </tbody>
 </table>
 
-<h2>5️⃣ Payouts: When Cash Exists</h2>
+<h2>5️. Payouts: When Cash Exists</h2>
 
 <table>
 <thead>
@@ -401,7 +401,7 @@ These entries are essential for reconciliation.
 </tbody>
 </table>
 
-<h2>🧠 One-Line Accounting Map</h2>
+<h2>[One-Line Accounting Map]</h2>
 
 <div class="highlight">
 <pre>
